@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#000D62">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon-precomposed" href="/icons/apple-touch-icon-180.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/icons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AS CE Portal">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Schedule · A-Senior 2027 · Course Reference</title>
+<link rel="stylesheet" href="/ussf-as.css">
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div>
+    <div class="kicker">U.S. Soccer · Coach Education</div>
+    <h1>A-Senior 2027</h1>
+    <p>One reference for the course: the narrative, the nine competencies, the four assignments and their rubrics, assessment, the calendar, the in-person meetings and the groups.</p>
+    <div class="meta"><span>12 months across a senior competitive season</span><span>200 learning hours</span><span>College and Pro groups</span><span>Orientation Oct 27, 2026 to IPM 3 Dec 2027</span></div>
+    </div>
+    <img class="crest" src="/icons/crest-mark.svg" alt="U.S. Soccer" width="64" height="87">
+  </div>
+</header>
+<nav><div class="nwrap">
+  <a href="/">Home</a>
+  <a href="/competencies">Competencies</a>
+  <a href="/assignments">Assignments</a>
+  <a href="/rubrics">Rubrics</a>
+  <a href="/assessment">Assessment</a>
+  <a href="/schedule" class="on">Schedule</a>
+  <a href="/ipmnarrative">IPM Narrative</a>
+  <a href="https://asessionplanner.netlify.app" target="_blank" rel="noopener">Session Planning Tool</a>
+  <a href="/ce-facilitators">CE Facilitation</a>
+  <a href="/cohorts">Groups</a>
+</div></nav>
+
+<main class="wrap">
+<section id="journey">
+  <div class="eyebrow">The Calendar</div>
+  <h2>The 12-month learning journey</h2>
+  <p class="lead">Planning, application, observation, feedback, reflection, adaptation and assessment take place throughout the course, in every phase. Dates are shown for both the College and Pro groups. Assignment due dates are in the Learning Center.</p>
+  <div class="journey" id="journey-list"></div>
+  <div class="jlegend"><span style="--c:var(--blue)">Online and virtual</span><span style="--c:var(--navy)">In person</span><span style="--c:var(--red)">Summative assessment</span></div>
+</section>
+
+<section id="hours">
+  <div class="eyebrow">Learning Hours</div>
+  <h2>200 hours across 12 months</h2>
+  <table class="ptable num" id="hours-table"></table>
+</section>
+
+<section id="schedule">
+  <div class="eyebrow">Meetings</div>
+  <h2>Master schedule</h2>
+  <p class="lead">The meetings set so far. Filter by meeting type or search. Virtual Week times, modules and presenters are still to be confirmed. Your notes save on this device.</p>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search meetings, facilitators, groups">
+    <div class="fbtns" id="grpf">
+      <button class="fb on" data-g="">All</button>
+      <button class="fb" data-g="Course">Course</button>
+      <button class="fb" data-g="Cohort">Cohort</button>
+      <button class="fb" data-g="In-Person">In-Person</button>
+    </div>
+    <span class="count" id="count"></span><span class="schedsrc" id="schedsrc">Dates from the course orientation</span>
+    <div class="notetools">
+      <button class="fb" id="noteExport" type="button">Export notes</button>
+      <button class="fb" id="noteImport" type="button">Import notes</button>
+    </div>
+  </div>
+  <div class="mscroll"><table>
+    <thead><tr>
+      <th>Date</th><th>Type</th><th>Meeting</th><th class="hide-sm">Facilitator</th><th>Guide</th><th>Notes</th>
+    </tr></thead>
+    <tbody id="tbody"></tbody>
+  </table></div>
+</section>
+</main>
+<footer><div class="wrap">
+  <span>A-Senior · 2027 course reference · updated 2026-10-23</span>
+  <span>Head of A License: Joe DeMay · Technical Lead: Gareth Smith · Operations Lead: Kate Ainsworth</span>
+</div></footer>
+
+<script src="/data.js"></script>
+<script>
+document.getElementById('journey-list').innerHTML = PHASES.map(p=>`<div class="jrow ${p.kind}">
+  <div class="jnum">${p.n}</div>
+  <div><div class="jname">${p.name}</div><div class="jwhen">${p.when}</div></div>
+  <div class="jtext">${p.text}</div></div>`).join('');
+document.getElementById('hours-table').innerHTML = `<thead><tr><th>Learning experience</th><th style="text-align:right">Hours</th></tr></thead><tbody>${HOURS.map(h=>`<tr><td>${h[0]}</td><td>${h[1]}</td></tr>`).join('')}<tr><td>Total</td><td>200</td></tr></tbody>`;
+
+let fGrp="", fQ="";
+const SCHEDROWS = ROWS;
+const tbody=document.getElementById('tbody'), count=document.getElementById('count');
+function render(){
+  const out = SCHEDROWS.filter(r=>{
+    if(fGrp && r.grp!==fGrp) return false;
+    if(fQ){ const blob=(r.name+' '+r.fac+' '+r.date+' '+(r.coh||'')).toLowerCase(); if(!blob.includes(fQ)) return false; }
+    return true;
+  });
+  tbody.innerHTML = out.map((r,i)=>{
+    const cohSub = r.coh ? `<div class="sub" style="color:var(--red);font-weight:600">${r.coh}</div>` : '';
+    const time = r.time ? `<div class="sub">${r.time}${r.dur?' · '+r.dur+(/day/.test(r.dur)?'':' min'):''}</div>` : '';
+    const key=noteKey(r);
+    let existing=""; try{ existing=localStorage.getItem(NS+key)||""; }catch(e){}
+    const has=existing.trim()?' has':'';
+    const label=existing.trim()?'Edit note':'Add note';
+    const guide=findGuide(r);
+    const guideBtn = guide ? `<button class="notebtn" data-guide="${i}" type="button">View guide</button>` : `<span style="color:#B4B4B4">·</span>`;
+    const guideRow = guide ? `<tr class="noterow" data-guiderow="${i}"><td colspan="6"><div class="notewrap"><div class="nlabel">Facilitation guide: ${esc(r.name)}</div><p class="fgover">${guide.overview}</p><div class="fgdetail">${guide.detail}</div></div></td></tr>` : '';
+    return `<tr data-row="${i}">
+      <td class="nm">${r.date}${time}</td>
+      <td><span class="gtag g-${r.grp.replace(/[^A-Za-z]/g,'')}">${r.grp}</span></td>
+      <td><div class="nm">${esc(r.name)}</div>${cohSub}</td>
+      <td class="hide-sm fac">${esc(r.fac||'·')}</td>
+      <td>${guideBtn}</td>
+      <td><button class="notebtn${has}" data-note="${i}" type="button">${label}</button></td>
+    </tr>${guideRow}
+    <tr class="noterow" data-noterow="${i}"><td colspan="6"><div class="notewrap">
+      <div class="nlabel">My notes: ${esc(r.name)} <span class="saved">Saved</span></div>
+      <textarea data-ta="${i}" placeholder="Notes for this meeting. Saved on this device only.">${esc(existing)}</textarea>
+      <button class="nclear" data-clear="${i}" type="button"${existing.trim()?'':' style="display:none"'}>Clear note</button>
+    </div></td></tr>`;
+  }).join('');
+  count.textContent = out.length+' of '+SCHEDROWS.length+' meetings';
+  wire(out);
+}
+function wire(out){
+  tbody.querySelectorAll('[data-guide]').forEach(btn=>btn.addEventListener('click',()=>{
+    const row=tbody.querySelector(`tr.noterow[data-guiderow="${btn.dataset.guide}"]`); if(row) row.classList.toggle('open');
+  }));
+  tbody.querySelectorAll('[data-note]').forEach(btn=>btn.addEventListener('click',()=>{
+    const row=tbody.querySelector(`tr.noterow[data-noterow="${btn.dataset.note}"]`);
+    if(row.classList.toggle('open')){ const ta=row.querySelector('textarea'); ta&&ta.focus(); }
+  }));
+  tbody.querySelectorAll('textarea[data-ta]').forEach(ta=>{
+    const i=ta.dataset.ta, key=noteKey(out[i]);
+    const row=tbody.querySelector(`tr.noterow[data-noterow="${i}"]`);
+    const btn=tbody.querySelector(`button.notebtn[data-note="${i}"]`);
+    const clr=tbody.querySelector(`button.nclear[data-clear="${i}"]`);
+    const saved=row.querySelector('.saved');
+    let t;
+    ta.addEventListener('input',()=>{
+      clearTimeout(t);
+      t=setTimeout(()=>{
+        const v=ta.value.trim();
+        try{
+          if(v){ localStorage.setItem(NS+key,ta.value); btn.classList.add('has'); btn.textContent='Edit note'; clr.style.display=''; }
+          else { localStorage.removeItem(NS+key); btn.classList.remove('has'); btn.textContent='Add note'; clr.style.display='none'; }
+          saved.classList.add('show'); setTimeout(()=>saved.classList.remove('show'),1100);
+        }catch(e){}
+      },350);
+    });
+    clr.addEventListener('click',()=>{
+      ta.value=''; try{ localStorage.removeItem(NS+key); }catch(e){}
+      btn.classList.remove('has'); btn.textContent='Add note'; clr.style.display='none'; ta.focus();
+    });
+  });
+}
+document.getElementById('noteExport').addEventListener('click',()=>{
+  const data={}; try{ Object.keys(localStorage).forEach(k=>{ if(k.startsWith(NS)) data[k.slice(NS.length)]=localStorage.getItem(k); }); }catch(e){}
+  const blob=new Blob([JSON.stringify({app:"as2027-notes",exported:new Date().toISOString(),notes:data},null,2)],{type:"application/json"});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download="a-senior-notes-"+new Date().toISOString().slice(0,10)+".json"; a.click();
+});
+document.getElementById('noteImport').addEventListener('click',()=>{
+  const inp=document.createElement('input'); inp.type='file'; inp.accept='application/json,.json';
+  inp.onchange=()=>{ const f=inp.files[0]; if(!f)return; const fr=new FileReader();
+    fr.onload=()=>{ try{ const o=JSON.parse(fr.result); const n=o.notes||o; let c=0;
+      Object.keys(n).forEach(k=>{ if(n[k]){ localStorage.setItem(NS+k,n[k]); c++; } });
+      render(); document.getElementById('count').textContent += ' · imported '+c+' note'+(c===1?'':'s');
+    }catch(e){ document.getElementById('count').textContent += ' · could not read that file'; } };
+    fr.readAsText(f); };
+  inp.click();
+});
+document.getElementById('q').addEventListener('input',e=>{fQ=e.target.value.toLowerCase();render();});
+document.querySelectorAll('#grpf .fb').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#grpf .fb').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); fGrp=b.dataset.g; render();
+}));
+render();
+balanceGrids();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body></html>

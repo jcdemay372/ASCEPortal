@@ -1,0 +1,23 @@
+{
+  "name": "A-Senior CE Portal 2027",
+  "short_name": "AS CE Portal",
+  "description": "Course reference for A-Senior Coach Educators: narrative, competencies, assignments, rubrics, assessment, schedule and in-person meetings.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000D62",
+  "theme_color": "#000D62",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-256.png", "sizes": "256x256", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-384.png", "sizes": "384x384", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Rubrics", "url": "/rubrics", "description": "Assignment rubrics and questions for the review" },
+    { "name": "IPM 2", "url": "/ipm2", "description": "IPM 2 narrative, requirements and Coach Educator guide" },
+    { "name": "Schedule", "url": "/schedule", "description": "Learning journey and meeting calendar" }
+  ]
+}

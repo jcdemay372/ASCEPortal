@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#000D62">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon-precomposed" href="/icons/apple-touch-icon-180.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/icons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AS CE Portal">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Assignments · A-Senior 2027 · Course Reference</title>
+<link rel="stylesheet" href="/ussf-as.css">
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div>
+    <div class="kicker">U.S. Soccer · Coach Education</div>
+    <h1>A-Senior 2027</h1>
+    <p>One reference for the course: the narrative, the nine competencies, the four assignments and their rubrics, assessment, the calendar, the in-person meetings and the groups.</p>
+    <div class="meta"><span>12 months across a senior competitive season</span><span>200 learning hours</span><span>College and Pro groups</span><span>Orientation Oct 27, 2026 to IPM 3 Dec 2027</span></div>
+    </div>
+    <img class="crest" src="/icons/crest-mark.svg" alt="U.S. Soccer" width="64" height="87">
+  </div>
+</header>
+<nav><div class="nwrap">
+  <a href="/">Home</a>
+  <a href="/competencies">Competencies</a>
+  <a href="/assignments" class="on">Assignments</a>
+  <a href="/rubrics">Rubrics</a>
+  <a href="/assessment">Assessment</a>
+  <a href="/schedule">Schedule</a>
+  <a href="/ipmnarrative">IPM Narrative</a>
+  <a href="https://asessionplanner.netlify.app" target="_blank" rel="noopener">Session Planning Tool</a>
+  <a href="/ce-facilitators">CE Facilitation</a>
+  <a href="/cohorts">Groups</a>
+</div></nav>
+
+<main class="wrap">
+<section id="assignments">
+  <div class="eyebrow">The Work</div>
+  <h2>Four assignments</h2>
+  <p class="lead">Your assignments are connected learning experiences, and each one builds on the one before it. They help you understand the players in the team, establish how you will support their development, put your game model and periodization into operation, and examine your influence across a competitive season. Select an assignment to open its full brief.</p>
+  <div class="agrid" id="agrid" data-balance="220"></div>
+  <div id="brief"></div>
+</section>
+
+<section id="connect">
+  <div class="eyebrow">How the Assignments Connect</div>
+  <h2>Integrated submissions across the four briefs</h2>
+  <p class="lead">Each assignment connects to every other assignment. A1, A2 and A3 establish the foundations for applied coaching and connect with each other, and A4 brings the player development process, game model and periodization plan together in practice across three micro-cycles. Read across a row to see how that brief integrates with each of the others.</p>
+  <div class="mscroll"><table class="matrix" id="xlink"></table></div>
+  <div class="callout">A1, A2 and A3 are formative and foundational: they establish the foundations for applied coaching. In A4, Cycles 1 and 2 are formative; Cycle 3 is summative and provides the final opportunity within the course to demonstrate your coaching practice and development. All four assignments are required for completion. They are developmental milestones, assessed together as one body of evidence.</div>
+</section>
+</main>
+<footer><div class="wrap">
+  <span>A-Senior · 2027 course reference · updated 2026-10-23</span>
+  <span>Head of A License: Joe DeMay · Technical Lead: Gareth Smith · Operations Lead: Kate Ainsworth</span>
+</div></footer>
+
+<script src="/data.js"></script>
+<script>
+const grid = document.getElementById('agrid');
+grid.innerHTML = ASG.map(a=>`<div class="acard" data-a="${a.id}" tabindex="0" role="button" aria-label="Open the ${a.id} brief">
+  <div class="top" style="background:${ACOLOR[a.id]}"><div class="num">${a.id}</div><div class="ti">${a.name}</div><div class="ph">${a.phase}</div></div>
+  <div class="body">${a.desc}</div>
+  <div class="amore">Open brief <span class="atog">&darr;</span></div>
+</div>`).join('');
+
+function list(items){ return `<ul>${items.map(x=>`<li>${x}</li>`).join('')}</ul>`; }
+function renderBrief(id){
+  const a = ASG.find(x=>x.id===id);
+  const others = ['A1','A2','A3','A4'].filter(x=>x!==id);
+  const integ = `<ul class="integ">${others.map(o=>`<li><b>Integrates with ${o}:</b> ${XLINK[id][o]}</li>`).join('')}${id==='A4'?'<li><b>Across micro-cycles:</b> Each micro-cycle builds on the adjustments defined at the end of the previous one.</li>':''}</ul>`;
+  const conn = `${a.connNote?`<p>${a.connNote}</p>`:''}<table class="cconn"><tbody>${CONN[id].map(([n,t])=>
+    `<tr><td>${compChip(n)}${id==='A4'&&n==='Coaching Approach'?'<div style="font-size:11px;letter-spacing:.14em;font-weight:bold;color:var(--red)">DOMINANT</div>':''}</td><td>${t}</td></tr>`).join('')}</tbody></table>`;
+  let work = '';
+  if(a.steps){
+    work = `<h3>Action steps</h3>` + a.steps.map(s=>`<h4>${s.title}</h4>${s.paras.map(p=>`<p>${p}</p>`).join('')}${s.note?`<p class="bnote">${s.note}</p>`:''}${s.includes?`<div class="incl"><div class="incl-l">The submission includes</div>${list(s.includes)}</div>`:''}`).join('');
+  }
+  if(a.parts){
+    work = `<h3>Deliverables per micro-cycle</h3>` + a.parts.map(p=>`<h4>${p.title}</h4>${p.lead?`<p>${p.lead}</p>`:''}${list(p.items)}`).join('') +
+      `<div class="mc3"><h3>Micro-cycle 3 additional requirements</h3><h4 style="margin-top:6px">Comprehensive season analysis</h4>` +
+      a.season.map(p=>`<h4>${p.title}</h4>${list(p.items)}`).join('') + `</div>`;
+  }
+  document.getElementById('brief').innerHTML = `<div class="brief" id="brief-${id}">
+    <div class="brief-head" style="background:${ACOLOR[id]}"><div class="num">${id}</div><div class="ti">${a.name}</div><div class="sb">${a.sub}</div></div>
+    <div class="brief-body">
+      <h3>Purpose</h3><p>${a.purpose}</p>
+      ${a.safety?`<div class="safety">${a.safety}</div>`:''}
+      <h3>Integrated submissions</h3>${integ}
+      <h3>Competency connection</h3>${conn}
+      ${work}
+      <p style="margin-top:22px"><a href="/rubrics#${id==='A4'?'MC1':id}">Open the ${id} rubric &rarr;</a></p>
+    </div></div>`;
+  grid.querySelectorAll('.acard').forEach(c=>c.classList.toggle('sel', c.dataset.a===id));
+}
+grid.querySelectorAll('.acard').forEach(c=>{
+  const go = ()=>{ renderBrief(c.dataset.a); history.replaceState(null,'','#'+c.dataset.a); document.getElementById('brief').scrollIntoView({behavior:'smooth', block:'start'}); };
+  c.addEventListener('click', go);
+  c.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
+});
+const start = (location.hash||'').slice(1);
+renderBrief(['A1','A2','A3','A4'].includes(start) ? start : 'A1');
+
+const A = ['A1','A2','A3','A4'];
+document.getElementById('xlink').innerHTML = `<thead><tr><th>Brief</th>${A.map(a=>`<th>With ${a}</th>`).join('')}</tr></thead><tbody>` +
+  A.map(r=>`<tr><td class="rowh">${chip(r)}</td>${A.map(c=> r===c ? '<td class="blank"></td>' : `<td>${XLINK[r][c]}</td>`).join('')}</tr>`).join('') + `</tbody>`;
+balanceGrids();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#000D62">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon-precomposed" href="/icons/apple-touch-icon-180.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/icons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AS CE Portal">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Rubrics · A-Senior 2027 · Course Reference</title>
+<link rel="stylesheet" href="/ussf-as.css">
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div>
+    <div class="kicker">U.S. Soccer · Coach Education</div>
+    <h1>A-Senior 2027</h1>
+    <p>One reference for the course: the narrative, the nine competencies, the four assignments and their rubrics, assessment, the calendar, the in-person meetings and the groups.</p>
+    <div class="meta"><span>12 months across a senior competitive season</span><span>200 learning hours</span><span>College and Pro groups</span><span>Orientation Oct 27, 2026 to IPM 3 Dec 2027</span></div>
+    </div>
+    <img class="crest" src="/icons/crest-mark.svg" alt="U.S. Soccer" width="64" height="87">
+  </div>
+</header>
+<nav><div class="nwrap">
+  <a href="/">Home</a>
+  <a href="/competencies">Competencies</a>
+  <a href="/assignments">Assignments</a>
+  <a href="/rubrics" class="on">Rubrics</a>
+  <a href="/assessment">Assessment</a>
+  <a href="/schedule">Schedule</a>
+  <a href="/ipmnarrative">IPM Narrative</a>
+  <a href="https://asessionplanner.netlify.app" target="_blank" rel="noopener">Session Planning Tool</a>
+  <a href="/ce-facilitators">CE Facilitation</a>
+  <a href="/cohorts">Groups</a>
+</div></nav>
+
+<main class="wrap">
+<section id="rubrics">
+  <div class="eyebrow">The Standard</div>
+  <h2>Rubrics</h2>
+  <p class="lead">The A Senior Course assesses the nine competencies together, through the coaching practice in which they appear. The standard is the Course Learning Outcome and the nine competency expectations at A Senior level in the Course Guide. The rubrics support consistent assessment against that standard and add no standard of their own.</p>
+  <p class="lead">Each assignment brief sets out what a complete submission includes. Each rubric describes what the work as a whole shows about the coach. The levels differ in how the coach connects the work to the players on the roster and across the assignments. There are no individual competency scores, and no single part of a submission decides the level. Each rubric lists the nine competencies, with the competencies connected in its assignment brief in bold, and the Coach Educator assesses them together through the work as a whole. In A4, Coaching Approach is the dominant and most observable competency.</p>
+
+  <h3 class="sub">The three levels</h3>
+  <div class="lvls" id="levels"></div>
+
+  <h3 class="sub">Considering evidence</h3>
+  <p>The Coach Educator considers the evidence holistically against the Course Learning Outcome and the nine competency expectations at A Senior level. The questions for the review support consistent evaluation of the evidence across the submission. The Student Coach and Coach Educator meet virtually to discuss the submission, ask clarifying questions, identify the coach's needs, and set development targets to carry forward in the course.</p>
+
+  <h3 class="sub">Across the course</h3>
+  <div class="cards3" data-balance="240">
+    <div class="tcard"><div class="tc-k">Foundational and formative</div><h4>A1, A2 and A3</h4><p>They establish the foundations for applied coaching, and the Coach Educator helps the coach connect each assignment to the next.</p></div>
+    <div class="tcard blue"><div class="tc-k">Formative</div><h4>A4 micro-cycles 1 and 2</h4><p>The Coach Educator guides the coach on what to work on in the next micro-cycle.</p></div>
+    <div class="tcard red"><div class="tc-k">Summative</div><h4>A4 micro-cycle 3</h4><p>The Coach Educator assesses it against the evidence from the whole season.</p></div>
+  </div>
+  <div class="safety"><b>Safeguarding. Unsafe coaching practice cannot meet the expected standards.</b> When the coach creates, permits, or fails to address an unsafe physical or emotional playing environment, the work does not meet the standard, whatever the quality elsewhere.</div>
+</section>
+
+<section id="byasg">
+  <div class="eyebrow">By Assignment</div>
+  <h2>Assignment rubrics and questions for the review</h2>
+  <div class="controls"><div class="fbtns" id="rubtabs"></div></div>
+  <div id="rubpanel" class="rubpanel"></div>
+  <div class="callout">Across the three Applied Coaching micro-cycles, the standard must be met in two of the three with micro-cycle 3 among them. A micro-cycle meets the standard when the work across the whole micro-cycle shows sufficient evidence of competency capability.</div>
+</section>
+</main>
+<footer><div class="wrap">
+  <span>A-Senior · 2027 course reference · updated 2026-10-23</span>
+  <span>Head of A License: Joe DeMay · Technical Lead: Gareth Smith · Operations Lead: Kate Ainsworth</span>
+</div></footer>
+
+<script src="/data.js"></script>
+<script>
+document.getElementById('levels').innerHTML = LEVELS.map(l=>`<div class="lvl ${l.id}"><p class="lv-n">${l.name}</p><p>${l.text}</p></div>`).join('');
+const KEYS = Object.keys(RUBRICS);
+const tabs = document.getElementById('rubtabs');
+tabs.innerHTML = KEYS.map(k=>`<button class="fb" data-r="${k}">${RUBRICS[k].label}</button>`).join('');
+function renderRub(k){
+  const r = RUBRICS[k];
+  tabs.querySelectorAll('.fb').forEach(b=>b.classList.toggle('on', b.dataset.r===k));
+  const a = ASG.find(x=>x.id===r.asg);
+  document.getElementById('rubpanel').innerHTML = `
+    <h3 style="margin:6px 0 4px;font-size:22px">${r.title}<span class="rubtag${r.tag==='Summative'?' sum':''}">${r.tag}</span></h3>
+    <div style="color:var(--muted);font-size:14px">${a.id} · ${a.name}</div>
+    ${r.note?`<p class="rubnote">${r.note}</p>`:''}
+    <h3 class="sub">Competencies</h3>
+    <div>${COMP.map(c=>compChip(c.name, r.bold.includes(c.name))).join('')}</div>
+    <div class="lvls">
+      <div class="lvl u"><p class="lv-n">Unsatisfactory</p><p>${r.u}</p></div>
+      <div class="lvl r"><p class="lv-n">Revision Required</p><p>${r.r}</p></div>
+      <div class="lvl s"><p class="lv-n">Satisfactory</p><p>${r.s}</p></div>
+    </div>
+    <h3 class="sub">Questions for the review</h3>
+    <table class="qtable"><thead><tr><th>#</th><th>Question</th><th>Where the brief asks for it</th></tr></thead><tbody>
+      ${r.q.map((q,i)=>`<tr><td class="qn">${i+1}</td><td><b>${q[0]}</b> ${q[1]}</td><td class="qw">${q[2]}</td></tr>`).join('')}
+    </tbody></table>
+    <div class="celine">${r.ce}</div>`;
+}
+tabs.querySelectorAll('.fb').forEach(b=>b.addEventListener('click',()=>{ renderRub(b.dataset.r); history.replaceState(null,'','#'+b.dataset.r); }));
+const h = (location.hash||'').slice(1);
+renderRub(KEYS.includes(h) ? h : 'A1');
+if(KEYS.includes(h)) setTimeout(()=>document.getElementById('byasg').scrollIntoView(),50);
+balanceGrids();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body></html>

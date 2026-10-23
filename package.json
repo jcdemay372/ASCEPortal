@@ -1,0 +1,9 @@
+{
+  "name": "asenior-2027-course-reference",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/sync-schedule.mjs"
+  }
+}

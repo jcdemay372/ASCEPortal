@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#000D62">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon-precomposed" href="/icons/apple-touch-icon-180.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/icons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AS CE Portal">
+<meta name="mobile-web-app-capable" content="yes">
+<title>CE Facilitation · A-Senior 2027 · Course Reference</title>
+<link rel="stylesheet" href="/ussf-as.css">
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div>
+    <div class="kicker">U.S. Soccer · Coach Education</div>
+    <h1>A-Senior 2027</h1>
+    <p>One reference for the course: the narrative, the nine competencies, the four assignments and their rubrics, assessment, the calendar, the in-person meetings and the groups.</p>
+    <div class="meta"><span>12 months across a senior competitive season</span><span>200 learning hours</span><span>College and Pro groups</span><span>Orientation Oct 27, 2026 to IPM 3 Dec 2027</span></div>
+    </div>
+    <img class="crest" src="/icons/crest-mark.svg" alt="U.S. Soccer" width="64" height="87">
+  </div>
+</header>
+<nav><div class="nwrap">
+  <a href="/">Home</a>
+  <a href="/competencies">Competencies</a>
+  <a href="/assignments">Assignments</a>
+  <a href="/rubrics">Rubrics</a>
+  <a href="/assessment">Assessment</a>
+  <a href="/schedule">Schedule</a>
+  <a href="/ipmnarrative">IPM Narrative</a>
+  <a href="https://asessionplanner.netlify.app" target="_blank" rel="noopener">Session Planning Tool</a>
+  <a href="/ce-facilitators" class="on">CE Facilitation</a>
+  <a href="/cohorts">Groups</a>
+</div></nav>
+
+<main class="wrap">
+<section id="cefacilitator">
+  <div class="eyebrow">For Coach Educators</div>
+  <h2>CE Facilitation Briefs</h2>
+  <p class="lead">Meeting-by-meeting facilitation briefs for Coach Educators, organized into blocks across the season. The briefs are still being developed. Each block fills in as its briefs are completed. IPM 2 Coach Educator guidance is on the <a href="/ipm2#ce">IPM 2 page</a>.</p>
+  <div class="cards3" id="blocks" data-balance="240"></div>
+</section>
+</main>
+<footer><div class="wrap">
+  <span>A-Senior · 2027 course reference · updated 2026-10-23</span>
+  <span>Head of A License: Joe DeMay · Technical Lead: Gareth Smith · Operations Lead: Kate Ainsworth</span>
+</div></footer>
+
+<script src="/data.js"></script>
+<script>
+document.getElementById('blocks').innerHTML = FACBLOCKS.map(b=>`<div class="tcard">
+  <div class="tc-k">${b.range}</div><h4>${b.label}</h4><p>${b.blurb}</p>
+  <p style="color:var(--muted);font-style:italic">Facilitation briefs in development.</p></div>`).join('');
+balanceGrids();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body></html>

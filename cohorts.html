@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#000D62">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="/icons/apple-touch-icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png">
+<link rel="apple-touch-icon-precomposed" href="/icons/apple-touch-icon-180.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/icons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AS CE Portal">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Groups · A-Senior 2027 · Course Reference</title>
+<link rel="stylesheet" href="/ussf-as.css">
+</head>
+<body>
+<header>
+  <div class="hwrap">
+    <div>
+    <div class="kicker">U.S. Soccer · Coach Education</div>
+    <h1>A-Senior 2027</h1>
+    <p>One reference for the course: the narrative, the nine competencies, the four assignments and their rubrics, assessment, the calendar, the in-person meetings and the groups.</p>
+    <div class="meta"><span>12 months across a senior competitive season</span><span>200 learning hours</span><span>College and Pro groups</span><span>Orientation Oct 27, 2026 to IPM 3 Dec 2027</span></div>
+    </div>
+    <img class="crest" src="/icons/crest-mark.svg" alt="U.S. Soccer" width="64" height="87">
+  </div>
+</header>
+<nav><div class="nwrap">
+  <a href="/">Home</a>
+  <a href="/competencies">Competencies</a>
+  <a href="/assignments">Assignments</a>
+  <a href="/rubrics">Rubrics</a>
+  <a href="/assessment">Assessment</a>
+  <a href="/schedule">Schedule</a>
+  <a href="/ipmnarrative">IPM Narrative</a>
+  <a href="https://asessionplanner.netlify.app" target="_blank" rel="noopener">Session Planning Tool</a>
+  <a href="/ce-facilitators">CE Facilitation</a>
+  <a href="/cohorts" class="on">Groups</a>
+</div></nav>
+
+<main class="wrap">
+<section id="cohorts">
+  <div class="eyebrow">People and Places</div>
+  <h2>Groups and in-person meetings</h2>
+  <p class="lead">The course runs in two groups, College and Pro. In-person meetings take place in Atlanta. Lead Educator and Coach Educator assignments for each group are still to be confirmed.</p>
+  <div class="cohgrid" id="cohgrid" data-balance="260"></div>
+</section>
+
+<section id="team">
+  <div class="eyebrow">Course Team</div>
+  <h2>Who leads the course</h2>
+  <div class="cohgrid team" id="teamgrid" data-balance="220"></div>
+</section>
+
+<section id="questions">
+  <div class="eyebrow">Question Workflow</div>
+  <h2>Who to ask, and in what order</h2>
+  <p class="lead">Coaches start with the first point of contact for the kind of question and move down the list only if the question is still open.</p>
+  <div class="flow" data-balance="220">
+    <div><p class="fl-k">Technology</p><ol><li>Operations Lead</li></ol></div>
+    <div><p class="fl-k">Content</p><ol><li>Course Guide</li><li>Coach Educator</li><li>Lead Educator</li><li>Technical Lead</li><li>Head of A License</li></ol></div>
+    <div><p class="fl-k">Schedule</p><ol><li>Learning Center calendar</li><li>Coach Educator</li><li>Lead Educator</li><li>Operations Lead</li><li>Head of A License</li></ol></div>
+    <div><p class="fl-k">Safeguarding</p><ol><li>Technical Lead</li><li>Head of A License</li></ol></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">
+  <span>A-Senior · 2027 course reference · updated 2026-10-23</span>
+  <span>Head of A License: Joe DeMay · Technical Lead: Gareth Smith · Operations Lead: Kate Ainsworth</span>
+</div></footer>
+
+<script src="/data.js"></script>
+<script>
+document.getElementById('cohgrid').innerHTML = COH.map(c=>`<div class="coh">
+  <div class="loc">Atlanta</div><h3>${c.group}</h3>
+  <div class="lbl">Lead Educator</div><p class="tbc">To be confirmed</p>
+  <div class="lbl">Coach Educators</div><p class="tbc">To be confirmed</p>
+  <div class="lbl">In-person meetings</div>
+  <ul class="ipmdates"><li>IPM 1 · ${c.ipm.ipm1}</li><li>IPM 2 · ${c.ipm.ipm2}</li><li>IPM 3 · ${c.ipm.ipm3}</li></ul>
+</div>`).join('');
+document.getElementById('teamgrid').innerHTML = TEAM.map(t=>`<div class="coh"><div class="loc">${t.role}</div><h3>${t.name}</h3></div>`).join('');
+balanceGrids();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
+</body></html>
