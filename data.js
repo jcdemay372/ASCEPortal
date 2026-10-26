@@ -1,6 +1,6 @@
 // A-Senior 2027 Course Reference: shared data
 // Loaded by every page; edit here once, all pages update.
-// Sources: A-Senior Course Guide 2027 (Final), A Senior Assignments and Rubrics (Oct 22, 2026),
+// Sources: A-Senior Course Guide 2027 (Final), A Senior Assignments and Rubrics (Oct 26, 2026),
 // A-Senior 2027 Course Orientation deck (Oct 27, 2026), Assessment Philosophy, Learning & Development Framework.
 
 const ACOLOR = {A1:"#000D62",A2:"#005CFF",A3:"#F20023",A4:"#16247A",MC1:"#16247A",MC2:"#16247A",MC3:"#16247A"};
@@ -62,6 +62,7 @@ const CONN = {
     ["Coaching Approach","Connects understanding of player development to the coach's coaching approach, identifying what that understanding demands of the coach and where current practice aligns with or contradicts it, including where results and selection pull against individual development."],
     ["Training & Game Design","Explains how players learn the game, how perception, decision-making, and execution develop together, and what that means for how training represents the game within the player development process."],
     ["Game Understanding","Connects player development philosophy to the game model. Identifies how individual player qualities and needs relate to the style of play."],
+    ["Observation & Analysis","Observes and analyzes each player's behavior in games and training to identify development needs, reviewing game footage with the player and staff."],
     ["Tactical Adaptability","Identifies how the team will apply different systems, formations, and tactical approaches within the game model to meet player and team needs."],
     ["Programming & Periodization","Establishes a roster-wide approach to individual development that connects to the periodization plan in Assignment 3."]
   ],
@@ -118,7 +119,7 @@ const XLINK = {
   A4:{A1:"The development process is applied to the focus players, and the season is evaluated against the A1 plan and course learning focus.",A2:"Learning objectives, game plans, and game analysis are set against the game model, and its progression is evaluated across the season.",A3:"Each micro-cycle is planned within the periodization structure and adjusted from the monitoring system."}
 };
 
-// The four assignments (A Senior Assignments and Rubrics, Oct 22, 2026; verbatim)
+// The four assignments (A Senior Assignments and Rubrics, Oct 26, 2026; verbatim)
 const ASG = [
   {id:"A1", name:"Player Development Process and Plan", sub:"Foundation for all subsequent coursework", phase:"Foundational and formative",
    desc:"Coaches articulate their understanding of the player development process, connect that understanding to their coaching approach, and plan which competencies they will develop during the course.",
@@ -245,7 +246,7 @@ const ASG = [
       "Analyze why gaps exist",
       "Identify what worked and what didn't with evidence",
       "Define adjustments for future micro-cycles"]},
-    {title:"Leadership Integration", items:[
+    {title:"Leadership Integration and Professional Development", items:[
       "Explain how understanding of development guided decisions",
       "Identify the connection between building relationships with players and the influence on their perceptions, decisions, and actions.",
       "Reflect on coaching development and competency growth",
