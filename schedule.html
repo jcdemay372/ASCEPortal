@@ -25,7 +25,7 @@
     <div class="kicker">U.S. Soccer · Coach Education</div>
     <h1>A-Senior 2027</h1>
     <p>One reference for the course: the narrative, the nine competencies, the four assignments and their rubrics, assessment, the calendar, the in-person meetings and the groups.</p>
-    <div class="meta"><span>12 months across a senior competitive season</span><span>200 learning hours</span><span>College and Pro groups</span><span>Orientation Oct 27, 2026 to IPM 3 Dec 2027</span></div>
+    <div class="meta"><span>12 months across a senior competitive season</span><span>250 learning hours</span><span>College and Pro groups</span><span>Orientation Oct 27, 2026 to IPM 3 Dec 2027</span></div>
     </div>
     <img class="crest" src="/icons/crest-mark.svg" alt="U.S. Soccer" width="64" height="87">
   </div>
@@ -47,21 +47,21 @@
 <section id="journey">
   <div class="eyebrow">The Calendar</div>
   <h2>The 12-month learning journey</h2>
-  <p class="lead">Planning, application, observation, feedback, reflection, adaptation and assessment take place throughout the course, in every phase. Dates are shown for both the College and Pro groups. Assignment due dates are in the Learning Center.</p>
+  <p class="lead">The phases indicate the primary focus of your learning rather than separate stages. Planning, application, observation, feedback, reflection, adaptation, and assessment take place throughout the course. Dates are shown for both the College and Pro groups. Assignment due dates are in the Learning Center.</p>
   <div class="journey" id="journey-list"></div>
-  <div class="jlegend"><span style="--c:var(--blue)">Online and virtual</span><span style="--c:var(--navy)">In person</span><span style="--c:var(--red)">Summative assessment</span></div>
+  <div class="jlegend"><span style="--c:var(--blue)">Virtual and development periods</span><span style="--c:var(--navy)">In person</span></div>
 </section>
 
 <section id="hours">
   <div class="eyebrow">Learning Hours</div>
-  <h2>200 hours across 12 months</h2>
-  <table class="ptable num" id="hours-table"></table>
+  <h2>250 hours across 12 months</h2>
+  <p class="lead">You will learn through three four-day in-person meetings, regular virtual learning, live webinars with Subject Matter Experts, independent study, collaboration, individual and small-group dialogue with Coach Educators, and applied coaching in your own environment.</p>
 </section>
 
 <section id="schedule">
   <div class="eyebrow">Meetings</div>
   <h2>Master schedule</h2>
-  <p class="lead">The meetings set so far. Filter by meeting type or search. Virtual Week times, modules and presenters are still to be confirmed. Your notes save on this device.</p>
+  <p class="lead">The meetings set so far. Filter by meeting type or search. Virtual Weeks times, modules and presenters are still to be confirmed. Your notes save on this device.</p>
   <div class="controls">
     <input id="q" type="search" placeholder="Search meetings, facilitators, groups">
     <div class="fbtns" id="grpf">
@@ -70,7 +70,7 @@
       <button class="fb" data-g="Cohort">Cohort</button>
       <button class="fb" data-g="In-Person">In-Person</button>
     </div>
-    <span class="count" id="count"></span><span class="schedsrc" id="schedsrc">Dates from the course orientation</span>
+    <span class="count" id="count"></span><span class="schedsrc" id="schedsrc">Dates from the Course Guide</span>
     <div class="notetools">
       <button class="fb" id="noteExport" type="button">Export notes</button>
       <button class="fb" id="noteImport" type="button">Import notes</button>
@@ -95,7 +95,6 @@ document.getElementById('journey-list').innerHTML = PHASES.map(p=>`<div class="j
   <div class="jnum">${p.n}</div>
   <div><div class="jname">${p.name}</div><div class="jwhen">${p.when}</div></div>
   <div class="jtext">${p.text}</div></div>`).join('');
-document.getElementById('hours-table').innerHTML = `<thead><tr><th>Learning experience</th><th style="text-align:right">Hours</th></tr></thead><tbody>${HOURS.map(h=>`<tr><td>${h[0]}</td><td>${h[1]}</td></tr>`).join('')}<tr><td>Total</td><td>200</td></tr></tbody>`;
 
 let fGrp="", fQ="";
 const SCHEDROWS = ROWS;

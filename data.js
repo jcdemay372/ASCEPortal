@@ -1,6 +1,6 @@
 // A-Senior 2027 Course Reference: shared data
 // Loaded by every page; edit here once, all pages update.
-// Sources: A-Senior Course Guide 2027 (Final), A Senior Assignments and Rubrics (Oct 26, 2026),
+// Sources: 2027 A-Senior License Course Guide (PDF, Nov 7, 2026), A Senior Assignments and Rubrics (Oct 26, 2026),
 // A-Senior 2027 Course Orientation deck (Oct 27, 2026), Assessment Philosophy, Learning & Development Framework.
 
 const ACOLOR = {A1:"#000D62",A2:"#005CFF",A3:"#F20023",A4:"#16247A",MC1:"#16247A",MC2:"#16247A",MC3:"#16247A"};
@@ -14,29 +14,18 @@ const DOMAINS = [
 
 // The schedule. scripts/sync-schedule.mjs replaces this array at build time
 // when SHEET_CSV_URL is set; until then it holds the dates from the orientation deck.
-const ROWS = [{"grp":"Course","date":"Oct, 27, 2026","time":"Virtual","name":"Course Orientation Meeting","dur":"","core":"","int":"","asg":"","fac":"Gareth Smith/Kate Ainsworth/Joe DeMay"},{"grp":"Course","date":"Dec, 07, 2026","time":"TBC","name":"Virtual Week Day 1","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 08, 2026","time":"TBC","name":"Virtual Week Day 2","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 09, 2026","time":"TBC","name":"Virtual Week Day 3","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 10, 2026","time":"TBC","name":"Virtual Week Day 4","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 11, 2026","time":"TBC","name":"Virtual Week Day 5","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"In-Person","date":"Jan, 11, 2027","time":"Jan 11–14","name":"IPM 1: Teaching Plan and Interactions","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"College group"},{"grp":"In-Person","date":"Jan, 25, 2027","time":"Jan 25–28","name":"IPM 1: Teaching Plan and Interactions","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"Pro group"},{"grp":"In-Person","date":"May, 17, 2027","time":"May 17–20","name":"IPM 2: Plan, Adjust, Reflect","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"College group"},{"grp":"In-Person","date":"Jun, 07, 2027","time":"Jun 7–10","name":"IPM 2: Plan, Adjust, Reflect","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"Pro group"},{"grp":"In-Person","date":"Dec, 06, 2027","time":"Dec 6–9","name":"IPM 3: Account and Transfer","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"College group"},{"grp":"In-Person","date":"Dec, 13, 2027","time":"Dec 13–16","name":"IPM 3: Account and Transfer","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"Pro group"}];
+const ROWS = [{"grp":"Course","date":"Oct, 27, 2026","time":"Virtual","name":"Course Orientation Meeting","dur":"","core":"","int":"","asg":"","fac":"Gareth Smith/Kate Ainsworth/Joe DeMay"},{"grp":"Course","date":"Dec, 01, 2026","time":"TBC","name":"Virtual Week 1 Day 1","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 02, 2026","time":"TBC","name":"Virtual Week 1 Day 2","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 03, 2026","time":"TBC","name":"Virtual Week 1 Day 3","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 04, 2026","time":"TBC","name":"Virtual Week 1 Day 4","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 07, 2026","time":"TBC","name":"Virtual Week 2 Day 1","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 08, 2026","time":"TBC","name":"Virtual Week 2 Day 2","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 09, 2026","time":"TBC","name":"Virtual Week 2 Day 3","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 10, 2026","time":"TBC","name":"Virtual Week 2 Day 4","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"Course","date":"Dec, 11, 2026","time":"TBC","name":"Virtual Week 2 Day 5","dur":"","core":"","int":"","asg":"","fac":"TBC"},{"grp":"In-Person","date":"Jan, 11, 2027","time":"Jan 11\u201314","name":"IPM 1: Teaching Plan and Interactions","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"Pro group"},{"grp":"In-Person","date":"Jan, 25, 2027","time":"Jan 25\u201328","name":"IPM 1: Teaching Plan and Interactions","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"College group"},{"grp":"In-Person","date":"May, 17, 2027","time":"May 17\u201320","name":"IPM 2: Plan, Adjust, Reflect","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"College group"},{"grp":"In-Person","date":"Jun, 07, 2027","time":"Jun 7\u201310","name":"IPM 2: Plan, Adjust, Reflect","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"Pro group"},{"grp":"In-Person","date":"Dec, 06, 2027","time":"Dec 6\u20139","name":"IPM 3: Account and Transfer","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"College group"},{"grp":"In-Person","date":"Dec, 13, 2027","time":"Dec 13\u201316","name":"IPM 3: Account and Transfer","dur":"4 days","core":"","int":"","asg":"","fac":"Coach Educators","coh":"Pro group"}];
 
-// The learning journey, from the orientation deck (slide 10) with descriptions from the Course Guide (7.2).
+// The learning journey, from the 2027 A-Senior License Course Guide PDF (7.2, Nov 7, 2026).
 // IPM 1 and IPM 2 descriptions updated Nov 7, 2026 to the revised meeting plans.
 const PHASES = [
   {n:1, kind:"virtual", name:"Orientation", when:"October 27, 2026", text:"A virtual meeting before the course begins. Gain a clear picture of the course, what is expected of you and who will support you, so you can plan your season around it."},
-  {n:2, kind:"virtual", name:"Virtual Week", when:"December 7–11, 2026", text:"The course begins. Virtual sessions across the week build a shared understanding of the Player, the Game and the Environment and how they support player development and your course experience."},
-  {n:3, kind:"inperson", name:"In-Person Meeting 1", when:"College Jan 11\u201314 \u00b7 Pro Jan 25\u201328, 2027", text:"Teaching plan and interactions: bring two players from the team, one whose qualities help the principles of your game model come to life and one whose qualities called for a different expression of the game model. Design two activities within one principle that highlight both players and show your player development plan and coaching approach."},
-  {n:4, kind:"virtual", name:"Online and Virtual", when:"February–April 2027", text:"Apply your learning in your own environment, with virtual meetings and an individual meeting with your Coach Educator after each assignment submission and each Applied Coaching cycle. Use feedback to reflect on your practice and adapt your approach."},
+  {n:2, kind:"virtual", name:"Virtual Weeks", when:"December 1\u20134 and 7\u201311, 2026", text:"The course begins. Virtual sessions across the week build a shared understanding of the Player, the Game and the Environment and how they support player development and your course experience."},
+  {n:3, kind:"inperson", name:"In-Person Meeting 1", when:"College Jan 25\u201328 \u00b7 Pro Jan 11\u201314, 2027", text:"Teaching plan and interactions: bring two players from the team, one whose qualities help the principles of your game model come to life and one whose qualities called for a different expression of the game model. Design two activities within one principle that highlight both players and show your player development plan and coaching approach."},
+  {n:4, kind:"virtual", name:"Development Period", when:"January\u2013May 2027", text:"Apply your learning in your own environment, with virtual meetings and an individual meeting with your Coach Educator after each assignment submission and each Applied Coaching cycle. Use feedback to reflect on your practice and adapt your approach."},
   {n:5, kind:"inperson", name:"In-Person Meeting 2", when:"College May 17\u201320 \u00b7 Pro Jun 7\u201310, 2027", text:"Plan, adjust, reflect to meet player needs: bring an Identified Game Pattern from the players in the team, with clips, measures and a planned session. At the IPM, profile the players you will coach, adjust the plan to them and reflect on how well the session met their needs."},
-  {n:6, kind:"virtual", name:"Online and Virtual", when:"June–August 2027", text:"Continue applied coaching, virtual meetings and individual meetings after each Applied Coaching cycle."},
-  {n:7, kind:"virtual", name:"Online and Virtual", when:"September–November 2027", text:"Repeated cycles let you build on feedback; Cycle 3 is the final opportunity to demonstrate your coaching practice and development."},
-  {n:8, kind:"inperson", name:"In-Person Meeting 3", when:"College Dec 6–9 · Pro Dec 13–16, 2027", text:"Account and transfer: explain your season, coach a problem from it live and reason across seasons with peers. Consolidate your learning and carry it beyond the course."},
-  {n:9, kind:"summative", name:"Summative Assessment", when:"Micro-cycle 3 feedback", text:"Summative assessment comes through your Cycle 3 feedback."}
-];
-
-// Learning hours, from the orientation deck (slide 11)
-const HOURS = [
-  ["Three four-day in-person meetings", 90],
-  ["Virtual meetings (1–2 per week)", 40],
-  ["Live expert webinars", 20],
-  ["Individual meetings with Coach Educator", 10],
-  ["Applied coaching and independent study", 120]
+  {n:6, kind:"virtual", name:"Development Period", when:"May\u2013December 2027", text:"Continue applied coaching, virtual meetings and individual meetings after each Applied Coaching cycle. Repeated cycles let you build on feedback; Cycle 3 is the culminating opportunity to demonstrate your coaching practice and development."},
+  {n:7, kind:"inperson", name:"In-Person Meeting 3", when:"College Dec 6\u20139 \u00b7 Pro Dec 13\u201316, 2027", text:"Account and transfer: explain your season, coach a problem from it live and reason across seasons with peers. Consolidate your learning and carry it beyond the course. Cycle 3 provides a culminating opportunity to demonstrate integrated coaching capability and reflect on your development across the season."}
 ];
 
 // The nine competencies and the A Senior expected competency outcomes (Course Guide section 6, verbatim)
@@ -361,16 +350,16 @@ const RUBRICS = {
 
 // CE Facilitation blocks. Content follows as each phase's facilitation briefs are developed.
 const FACBLOCKS = [
-  {id:"b1", label:"Block 1 · Foundation", range:"Oct 27, 2026–IPM 1 (Jan 2027)", status:"soon", blurb:"Orientation, Virtual Week and IPM 1."},
-  {id:"b2", label:"Block 2 · Micro-cycle 1", range:"February–April 2027", status:"soon", blurb:"Online and virtual period through IPM 2."},
-  {id:"b3", label:"Block 3 · Micro-cycle 2", range:"June–November 2027", status:"soon", blurb:"Online and virtual periods through IPM 3."},
-  {id:"b4", label:"Block 4 · Summative", range:"December 2027", status:"soon", blurb:"IPM 3 and micro-cycle 3 summative feedback."}
+  {id:"b1", label:"Block 1 · Foundation", range:"Oct 27, 2026–IPM 1 (Jan 2027)", status:"soon", blurb:"Orientation, Virtual Weeks and IPM 1."},
+  {id:"b2", label:"Block 2 · Micro-cycle 1", range:"January–May 2027", status:"soon", blurb:"Development period through IPM 2."},
+  {id:"b3", label:"Block 3 · Micro-cycle 2", range:"May–December 2027", status:"soon", blurb:"Development period through IPM 3."},
+  {id:"b4", label:"Block 4 · Summative", range:"December 2027", status:"soon", blurb:"IPM 3 and micro-cycle 3, the culminating assessment opportunity."}
 ];
 
 // Groups. Lead Educator and Coach Educator assignments follow.
 const COH = [
-  {group:"College group", ipm:{ipm1:"Jan 11–14, 2027", ipm2:"May 17–20, 2027", ipm3:"Dec 6–9, 2027"}},
-  {group:"Pro group", ipm:{ipm1:"Jan 25–28, 2027", ipm2:"Jun 7–10, 2027", ipm3:"Dec 13–16, 2027"}}
+  {group:"College group", ipm:{ipm1:"Jan 25–28, 2027", ipm2:"May 17–20, 2027", ipm3:"Dec 6–9, 2027"}},
+  {group:"Pro group", ipm:{ipm1:"Jan 11–14, 2027", ipm2:"Jun 7–10, 2027", ipm3:"Dec 13–16, 2027"}}
 ];
 
 const TEAM = [
