@@ -25,6 +25,6 @@ All content lives in `data.js` or in the page files. Edit `data.js` once and eve
 2. In Netlify, add a new site from that repo. The build command and publish folder come from `netlify.toml`.
 3. Optional: switch on the nightly schedule sync. See `SETUP-SCHEDULE-SYNC.md`. Until `SHEET_CSV_URL` is set, the schedule shows the dates already in `data.js`.
 
-The service worker cache is `as-ce-portal-v5` in `sw.js`. Bump the version when you change a page so phones pick up the new copy.
+The service worker cache is `as-ce-portal-v6` in `sw.js`. Bump the version when you change a page so phones pick up the new copy.
 
 The USSF Unity font files are not included. Drop them into `/fonts` (see `fonts/README.txt`).

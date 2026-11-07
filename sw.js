@@ -2,7 +2,7 @@
 // Strategy: network-first for pages and data so CEs always see the current
 // content when they have signal, with a cached copy served when they don't.
 
-const CACHE = 'as-ce-portal-v5';
+const CACHE = 'as-ce-portal-v6';
 
 const PRECACHE = [
   '/', '/index.html',
