@@ -1,7 +1,7 @@
 > **This repo no longer serves the portal.** In Nov 2026 the A-Senior CE Portal moved into the
-> `jcdemay372/AYCurriculumSequencer` repo, at https://asceportal.netlify.app. This Netlify project now
+> `jcdemay372/AYCurriculumSequencer` repo, at https://a-ceportal.netlify.app. This Netlify project now
 > sits at https://aycurriculumsequencer.netlify.app and forwards every address to the same address on
-> asceportal.netlify.app (see `netlify.toml`). The portal files here are the last version from before the move.
+> a-ceportal.netlify.app (see `netlify.toml`). The portal files here are the last version from before the move.
 
 # A-Senior 2027 CE Portal
 

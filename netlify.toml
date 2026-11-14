@@ -1,6 +1,6 @@
 # This Netlify project now sits at aycurriculumsequencer.netlify.app and only forwards.
 # The A-Senior CE Portal moved into the jcdemay372/AYCurriculumSequencer repo in Nov 2026
-# and took the asceportal.netlify.app name. Every address here goes to the same address
+# and moved to a-ceportal.netlify.app. Every address here goes to the same address
 # there, so old sequencer links keep working. The portal files in this repo are the last
 # version from before the move; netlify.portal-old.toml is the old settings file.
 
@@ -14,18 +14,18 @@
 # The sequencer's old front page was the A-Youth course narrative.
 [[redirects]]
   from = "/"
-  to = "https://asceportal.netlify.app/a-youth/"
+  to = "https://a-ceportal.netlify.app/a-youth/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/index.html"
-  to = "https://asceportal.netlify.app/a-youth/"
+  to = "https://a-ceportal.netlify.app/a-youth/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/*"
-  to = "https://asceportal.netlify.app/:splat"
+  to = "https://a-ceportal.netlify.app/:splat"
   status = 301
   force = true
