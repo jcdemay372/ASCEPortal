@@ -1,0 +1,93 @@
+[build]
+  publish = "."
+  command = "npm run build"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/competencies"
+  to = "/competencies.html"
+  status = 200
+
+[[redirects]]
+  from = "/assignments"
+  to = "/assignments.html"
+  status = 200
+
+[[redirects]]
+  from = "/rubrics"
+  to = "/rubrics.html"
+  status = 200
+
+[[redirects]]
+  from = "/assessment"
+  to = "/assessment.html"
+  status = 200
+
+[[redirects]]
+  from = "/schedule"
+  to = "/schedule.html"
+  status = 200
+
+[[redirects]]
+  from = "/ipmnarrative"
+  to = "/ipmnarrative.html"
+  status = 200
+
+[[redirects]]
+  from = "/cohorts"
+  to = "/cohorts.html"
+  status = 200
+
+[[redirects]]
+  from = "/ipm1"
+  to = "/ipm1.html"
+  status = 200
+
+[[redirects]]
+  from = "/ipm2"
+  to = "/ipm2.html"
+  status = 200
+
+[[redirects]]
+  from = "/ipm3"
+  to = "/ipm3.html"
+  status = 200
+
+[[redirects]]
+  from = "/ce-facilitators"
+  to = "/cefacilitator.html"
+  status = 200
+
+[[headers]]
+  for = "/ussf-as.css"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/data.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/icons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/apple-touch-icon*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+    Access-Control-Allow-Origin = "*"
